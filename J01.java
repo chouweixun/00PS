@@ -56,11 +56,11 @@ class MiniNote {
         this.cpu = new CPU(1.66);
         this.hd = new HD(120);
     }
-    public int getCost() {
-        return (lcd.getCost() + cpu.getCost() + hd.getCost())*2;
+    public double getCost() {
+        return (lcd.getCost() + cpu.getCost() + hd.getCost())*1.4;
     }
-    public double getPrice() {
-        return (getCost()/2)* 1.4;
+    public int getPrice() {
+        return (int) ((getCost() / 1.4) * 2);
     }
 }
 class Note15 {
@@ -72,19 +72,18 @@ class Note15 {
         this.cpu = new CPU(2.2);
         this.hd = new HD(160);
     }
-    public int getCost() {
-        return (lcd.getCost() + cpu.getCost() + hd.getCost())* 2;
+    public double getCost() {
+        return (lcd.getCost() + cpu.getCost() + hd.getCost())*1.4;
     }
-    public double getPrice() {
-        return (getCost()/2) * 1.4 ;
+     public int getPrice() {
+        return (int) ((getCost() / 1.4) * 2);
     }
 }
 public class J01 {
     public static void main(String[] args) {
         MiniNote mininote = new MiniNote();
         Note15 note15 = new Note15();
-
-        System.out.println("定價: " + mininote.getPrice()+", MiniNote筆電成本: " + mininote.getCost());
-        System.out.println("定價: " + note15.getPrice()+", Note15筆電成本: " + note15.getCost());
+        System.out.println("MiniNote cost: " + mininote.getCost()+", price: " + mininote.getPrice());
+        System.out.println("Note15 cost " + note15.getCost()+", price: " + note15.getPrice());
     }
 }
